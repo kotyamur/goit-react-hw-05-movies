@@ -1,31 +1,26 @@
-import { Routes, Route, NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import { Layout } from './App.styled';
+import { Routes, Route } from 'react-router-dom';
+import { Header, Layout, Link } from './App.styled';
 import { Home } from 'pages/Home/Home';
-
-const StyledLink = styled(NavLink)`
-  color: black;
-
-  &.active {
-    color: orange;
-  }
-`;
+import { NotFound } from 'pages/NotFound/NotFound';
+import { Movies } from 'pages/Movies/Movies';
 
 export const App = () => {
   return (
     <Layout>
-      <nav>
-        <StyledLink to="/" end>
-          Home
-        </StyledLink>
-        <StyledLink to="/movies">movies</StyledLink>
-      </nav>
+      <Header>
+        <nav>
+          <Link to="/" end>
+            Home
+          </Link>
+          <Link to="/movies">Movies</Link>
+        </nav>
+      </Header>
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<div>movies</div>} />
+        <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:movieId" element={<div>movieId</div>} />
-        <Route path="*" element={<div>NotFound</div>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>
   );

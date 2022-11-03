@@ -1,4 +1,4 @@
-import { controller, searchPopularMovies } from 'api';
+import { searchPopularMovies } from 'api';
 import { useState, useEffect } from 'react';
 
 export const Home = () => {
@@ -25,7 +25,7 @@ export const Home = () => {
 
   return (
     <div>
-      Home
+      <h1>Trending today</h1>
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>

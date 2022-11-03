@@ -14,6 +14,16 @@ export const searchPopularMovies = async () => {
       api_key: API_KEY,
     },
   });
-  console.log(response.data.results);
+  return response.data.results;
+};
+
+export const searchMoviesByQuery = async (searchQuery, page = 1) => {
+  const response = await axios.get('search/movie', {
+    params: {
+      page: page,
+      query: searchQuery,
+      api_key: API_KEY,
+    },
+  });
   return response.data.results;
 };
