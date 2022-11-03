@@ -1,6 +1,7 @@
 import { Routes, Route, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Layout } from './App.styled';
+import { Home } from 'pages/Home/Home';
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -21,7 +22,7 @@ export const App = () => {
       </nav>
 
       <Routes>
-        <Route path="/" element={<div>home</div>} />
+        <Route path="/" element={<Home />} />
         <Route path="/movies" element={<div>movies</div>} />
         <Route path="/movies/:movieId" element={<div>movieId</div>} />
         <Route path="*" element={<div>NotFound</div>} />
