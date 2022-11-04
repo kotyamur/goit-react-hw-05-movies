@@ -27,3 +27,12 @@ export const searchMoviesByQuery = async (searchQuery, page = 1) => {
   });
   return response.data.results;
 };
+
+export const searchMoviesDetails = async movieId => {
+  const response = await axios.get(`movie/${movieId}`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+  return response.data;
+};

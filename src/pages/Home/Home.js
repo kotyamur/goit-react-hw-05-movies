@@ -28,14 +28,6 @@ export const Home = () => {
     <div>
       <h1>Trending today</h1>
       <MoviesList movies={movies} />
-      {/* <ul>
-        {movies.map(movie => (
-          <li key={movie.id}>
-            {movie.id}
-            {movie.title}
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 };

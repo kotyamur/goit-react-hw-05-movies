@@ -50,14 +50,6 @@ export const Movies = () => {
         <button type="submit">Search</button>
       </form>
       <MoviesList movies={movies} />
-      {/* <ul>
-        {movies.map(movie => (
-          <li key={movie.id}>
-            {movie.id}
-            {movie.title}
-          </li>
-        ))}
-      </ul> */}
     </main>
   );
 };
