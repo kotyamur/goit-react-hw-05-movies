@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
+import { Layout, Text } from './MoviesList.styled';
 
 export const MoviesList = ({ movies }) => {
   return (
-    <ul>
+    <Layout>
       {movies.map(movie => (
         <li key={movie.id}>
           <Link to={`/movies/${movie.id}`}>
-            <span>{movie.id}</span>
-            <p>{movie.title}</p>
+            <Text>{movie.title}</Text>
           </Link>
         </li>
       ))}
-    </ul>
+    </Layout>
   );
 };

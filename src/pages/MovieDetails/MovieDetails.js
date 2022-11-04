@@ -2,6 +2,7 @@ import { searchMoviesDetails } from 'api';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Layout } from './MovieDetails.styled';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -25,10 +26,10 @@ export const MovieDetails = () => {
   return (
     <>
       {movie && (
-        <div>
+        <Layout>
           Now showing product with id - {movieId}
           <MovieInfo movie={movie} />
-        </div>
+        </Layout>
       )}
     </>
   );

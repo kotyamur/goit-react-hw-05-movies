@@ -1,6 +1,7 @@
 import { searchPopularMovies } from 'api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useState, useEffect } from 'react';
+import { Layout, Header } from './Home.styled';
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -25,9 +26,9 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Trending today</h1>
+    <Layout>
+      <Header>Trending today</Header>
       <MoviesList movies={movies} />
-    </div>
+    </Layout>
   );
 };

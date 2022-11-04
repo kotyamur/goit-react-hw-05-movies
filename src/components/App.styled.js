@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Layout = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Header = styled.header`
-  padding: 8px 0;
+  padding: 8px;
   margin-bottom: 16px;
-  border-bottom: 1px solid black;
+  box-shadow: 1px 2px 9px 0px rgb(0 0 0 / 55%);
 
   > nav {
     display: flex;
@@ -21,6 +21,7 @@ export const Link = styled(NavLink)`
   border-radius: 4px;
   text-decoration: none;
   color: black;
+  font-size: 28px;
   font-weight: 500;
 
   &.active {
