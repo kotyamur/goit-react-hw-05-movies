@@ -27,7 +27,6 @@ export const MovieDetails = () => {
     <>
       {movie && (
         <Layout>
-          Now showing product with id - {movieId}
           <MovieInfo movie={movie} />
         </Layout>
       )}
