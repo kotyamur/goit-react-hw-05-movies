@@ -1,4 +1,5 @@
 import { searchMoviesByQuery } from 'api';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useState, useEffect } from 'react';
 
 export const Movies = () => {
@@ -48,14 +49,15 @@ export const Movies = () => {
         />
         <button type="submit">Search</button>
       </form>
-      <ul>
+      <MoviesList movies={movies} />
+      {/* <ul>
         {movies.map(movie => (
           <li key={movie.id}>
             {movie.id}
             {movie.title}
           </li>
         ))}
-      </ul>
+      </ul> */}
     </main>
   );
 };

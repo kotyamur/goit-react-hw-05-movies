@@ -1,4 +1,5 @@
 import { searchPopularMovies } from 'api';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useState, useEffect } from 'react';
 
 export const Home = () => {
@@ -26,14 +27,15 @@ export const Home = () => {
   return (
     <div>
       <h1>Trending today</h1>
-      <ul>
+      <MoviesList movies={movies} />
+      {/* <ul>
         {movies.map(movie => (
           <li key={movie.id}>
             {movie.id}
             {movie.title}
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
