@@ -29,26 +29,16 @@ export const Reviews = () => {
       )}
       {movieReviews.length > 0 && (
         <ReviewList>
-          {movieReviews.map(review => {
+          {movieReviews.map(({ id, author, content }) => {
             return (
-              <ReviewItem key={review.id}>
-                <ReviewAvtor>Author: {review.author}</ReviewAvtor>
-                <p>{review.content}</p>
+              <ReviewItem key={id}>
+                <ReviewAvtor>Author: {author}</ReviewAvtor>
+                <p>{content}</p>
               </ReviewItem>
             );
           })}
         </ReviewList>
       )}
-      {/* <ReviewList>
-        {movieReviews.map(review => {
-          return (
-            <ReviewItem key={review.id}>
-              <ReviewAvtor>Author: {review.author}</ReviewAvtor>
-              <p>{review.content}</p>
-            </ReviewItem>
-          );
-        })}
-      </ReviewList> */}
     </Layout>
   );
 };

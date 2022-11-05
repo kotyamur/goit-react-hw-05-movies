@@ -22,24 +22,36 @@ export const Cast = () => {
     fetchMovieCast();
   }, [movieId]);
 
-  let url = 'https://image.tmdb.org/t/p/w500/';
+  const imageUrl = 'https://image.tmdb.org/t/p/w500/';
 
   return (
     <Layout>
-      <CastList>
-        {movieCast.length === 0 && (
-          <p>We don't have any reviews for this movie.</p>
-        )}
-        {movieCast.map(movie => {
-          return (
-            <CastItem key={movie.id}>
-              <img src={url + movie.profile_path} alt={movie.original_name} />
-              <ActorName>{movie.name}</ActorName>
-              <p>Character: {movie.character}</p>
-            </CastItem>
-          );
-        })}
-      </CastList>
+      {movieCast.length === 0 && (
+        <p>We didn't find any actors for this movie.</p>
+      )}
+
+      {movieCast.length > 0 && (
+        <CastList>
+          {movieCast.map(
+            ({ id, profile_path, original_name, name, character }) => {
+              return (
+                <CastItem key={id}>
+                  <img
+                    src={
+                      profile_path
+                        ? imageUrl + profile_path
+                        : 'https://i.postimg.cc/NF6QdzcX/no.jpg'
+                    }
+                    alt={original_name}
+                  />
+                  <ActorName>{name}</ActorName>
+                  <p>Character: {character}</p>
+                </CastItem>
+              );
+            }
+          )}
+        </CastList>
+      )}
     </Layout>
   );
 };

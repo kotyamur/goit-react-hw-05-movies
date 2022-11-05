@@ -7,21 +7,37 @@ import {
 } from './MovieInfo.styled';
 
 export const MovieInfo = ({ movie }) => {
-  let url = 'https://image.tmdb.org/t/p/w500/';
+  const {
+    poster_path,
+    original_title,
+    title,
+    release_date,
+    vote_average,
+    overview,
+    genres,
+  } = movie;
+
+  const imageUrl = 'https://image.tmdb.org/t/p/w500/';
+
   return (
     <Layout>
-      <FilmImage src={url + movie.poster_path} alt={movie.original_title} />
+      <FilmImage
+        src={
+          poster_path
+            ? imageUrl + poster_path
+            : 'https://i.postimg.cc/L8fCW6RZ/repetajpg.jpg'
+        }
+        alt={original_title}
+      />
       <FilmInfo>
         <FilmTitle>
-          {movie.title} ({String(movie.release_date).slice(0, 4)})
+          {title} ({String(release_date).slice(0, 4)})
         </FilmTitle>
-        <p>
-          User Score: {Math.round(movie.popularity)}% or {movie.vote_average}
-        </p>
+        <p>User Score: {Math.round(vote_average * 10)}%</p>
         <Heading>Overviev</Heading>
-        <p>{movie.overview}</p>
+        <p>{overview}</p>
         <Heading>Genres</Heading>
-        <p>{movie.genres.map(genre => genre.name).join(' ')}</p>
+        <p>{genres.map(genre => genre.name).join(' ')}</p>
       </FilmInfo>
     </Layout>
   );
