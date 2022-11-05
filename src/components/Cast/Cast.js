@@ -1,15 +1,15 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { searchMoviesCast } from 'api';
+import { searchMovieCast } from 'api';
 
 export const Cast = () => {
   const [movieCast, setMovieCast] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
-    const fetchMoviesCast = async () => {
+    const fetchMovieCast = async () => {
       try {
-        const filmCast = await searchMoviesCast(movieId);
+        const filmCast = await searchMovieCast(movieId);
         console.log(filmCast);
         setMovieCast(filmCast);
       } catch (e) {
@@ -18,7 +18,7 @@ export const Cast = () => {
       } finally {
       }
     };
-    fetchMoviesCast();
+    fetchMovieCast();
   }, [movieId]);
 
   let url = 'https://image.tmdb.org/t/p/w500/';
@@ -29,7 +29,7 @@ export const Cast = () => {
       <ul>
         {movieCast.map(movie => {
           return (
-            <li>
+            <li key={movie.id}>
               <img src={url + movie.profile_path} alt={movie.original_name} />
               <p>{movie.name}</p>
               <p>Character: {movie.character}</p>
