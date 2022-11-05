@@ -3,7 +3,8 @@ import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Layout } from './MovieDetails.styled';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { NavToAdditionalInfo } from 'components/NavToAdditionalInfo/NavToAdditionalInfo';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -29,17 +30,7 @@ export const MovieDetails = () => {
       {movie && (
         <Layout>
           <MovieInfo movie={movie} />
-          <div>
-            <p>Additional information</p>
-            <ul>
-              <li>
-                <Link to="cast">Cast</Link>
-              </li>
-              <li>
-                <Link to="reviews">Reviews</Link>
-              </li>
-            </ul>
-          </div>
+          <NavToAdditionalInfo />
           <Outlet />
         </Layout>
       )}
