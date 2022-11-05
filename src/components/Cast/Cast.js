@@ -5,17 +5,21 @@ import { Layout, CastList, CastItem, ActorName } from './Cast.styled';
 
 export const Cast = () => {
   const [movieCast, setMovieCast] = useState([]);
+  const [error, setError] = useState(null);
   const { movieId } = useParams();
 
   useEffect(() => {
     const fetchMovieCast = async () => {
       try {
         const filmCast = await searchMovieCast(movieId);
-        console.log(filmCast);
         setMovieCast(filmCast);
+        setError(
+          filmCast.length === 0
+            ? "We didn't find any actors for this movie."
+            : null
+        );
       } catch (e) {
-        console.log(e);
-        // throw e;
+        setError("We didn't find any actors for this movie.");
       } finally {
       }
     };
@@ -26,10 +30,7 @@ export const Cast = () => {
 
   return (
     <Layout>
-      {movieCast.length === 0 && (
-        <p>We didn't find any actors for this movie.</p>
-      )}
-
+      {error && <p>{error}</p>}
       {movieCast.length > 0 && (
         <CastList>
           {movieCast.map(

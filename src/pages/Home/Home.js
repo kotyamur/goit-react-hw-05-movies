@@ -5,16 +5,15 @@ import { Layout, Header } from './Home.styled';
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchPopularMovies = async () => {
       try {
         const fetchedPopularMovies = await searchPopularMovies();
-        console.log(fetchedPopularMovies);
         setMovies(fetchedPopularMovies);
       } catch (e) {
-        console.log(e);
-        // throw e;
+        setError("We couldn't find popular movies :( Please reload the page!");
       } finally {
       }
     };
@@ -28,6 +27,7 @@ export const Home = () => {
   return (
     <Layout>
       <Header>Trending today</Header>
+      {error && <p>{error}</p>}
       <MoviesList movies={movies} />
     </Layout>
   );

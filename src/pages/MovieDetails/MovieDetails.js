@@ -9,17 +9,16 @@ import { BackLink } from 'components/BackLink/BackLink';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
+  const [error, setError] = useState(null);
   const { movieId } = useParams();
 
   useEffect(() => {
     const fetchMoviesDetails = async () => {
       try {
         const movieById = await searchMoviesDetails(movieId);
-        console.log(movieById);
         setMovie(movieById);
       } catch (e) {
-        console.log(e);
-        // throw e;
+        setError("We didn't find any information about this movie.");
       } finally {
       }
     };
@@ -28,9 +27,9 @@ export const MovieDetails = () => {
 
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/movies';
-  console.log(backLinkHref);
   return (
     <main>
+      {error && <p>{error}</p>}
       {movie && (
         <Layout>
           <BackLink to={backLinkHref}>Go back</BackLink>

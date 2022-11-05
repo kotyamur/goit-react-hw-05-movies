@@ -6,13 +6,12 @@ import { useSearchParams } from 'react-router-dom';
 import { Layout } from './Movies.styled';
 
 export const Movies = () => {
-  // const [searchQuery, setsearchQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
+  const [error, setError] = useState(null);
 
   const handleSubmit = query => {
-    // setsearchQuery(query);
     const nextQuery = query !== '' ? { query } : {};
     setSearchParams(nextQuery);
   };
@@ -24,11 +23,14 @@ export const Movies = () => {
     const fetchMoviesByQuery = async () => {
       try {
         const fetchedMovies = await searchMoviesByQuery(query);
-        console.log(fetchedMovies);
         setMovies(fetchedMovies);
+        setError(
+          fetchedMovies.length === 0
+            ? "We didn't find any movie for this query."
+            : null
+        );
       } catch (e) {
-        console.log(e);
-        // throw e;
+        setError("We didn't find any movie for this query.");
       } finally {
       }
     };
@@ -39,9 +41,8 @@ export const Movies = () => {
   return (
     <Layout>
       <SearchForm onSubmit={handleSubmit} />
-      {/* {movies.length === 0 && <p>We didn't find any movie for this query.</p>} */}
+      {error && <p>{error}</p>}
       {movies.length > 0 && <MoviesList movies={movies} />}
-      {/* <MoviesList movies={movies} /> */}
     </Layout>
   );
 };

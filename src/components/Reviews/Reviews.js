@@ -5,6 +5,7 @@ import { Layout, ReviewList, ReviewItem, ReviewAvtor } from './Reviews.styled';
 
 export const Reviews = () => {
   const [movieReviews, setMovieReviews] = useState([]);
+  const [error, setError] = useState(null);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -13,9 +14,13 @@ export const Reviews = () => {
         const filmReviews = await searchMovieReviews(movieId);
         console.log(filmReviews);
         setMovieReviews(filmReviews);
+        setError(
+          filmReviews.length === 0
+            ? "We don't have any reviews for this movie."
+            : null
+        );
       } catch (e) {
-        console.log(e);
-        // throw e;
+        setError("We don't have any reviews for this movie.");
       } finally {
       }
     };
@@ -24,9 +29,7 @@ export const Reviews = () => {
 
   return (
     <Layout>
-      {movieReviews.length === 0 && (
-        <p>We don't have any reviews for this movie.</p>
-      )}
+      {error && <p>{error}</p>}
       {movieReviews.length > 0 && (
         <ReviewList>
           {movieReviews.map(({ id, author, content }) => {

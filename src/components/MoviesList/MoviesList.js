@@ -3,7 +3,6 @@ import { Layout, Text } from './MoviesList.styled';
 
 export const MoviesList = ({ movies }) => {
   const location = useLocation();
-  console.log(location);
   return (
     <Layout>
       {movies.map(movie => (
