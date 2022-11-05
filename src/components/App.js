@@ -1,6 +1,6 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Home } from 'pages/Home/Home';
-import { NotFound } from 'pages/NotFound/NotFound';
+// import { NotFound } from 'pages/NotFound/NotFound';
 import { Movies } from 'pages/Movies/Movies';
 import { MovieDetails } from 'pages/MovieDetails/MovieDetails';
 import { Cast } from './Cast/Cast';
@@ -17,7 +17,8 @@ export const App = () => {
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
   );
