@@ -5,7 +5,8 @@ export const Layout = styled.div`
   gap: 8px;
   width: 1000px;
   margin-bottom: 16px;
-  padding: 0 20px;
+  padding: 20px 20px;
+  box-shadow: 0px 6px 5px -4px rgb(0 0 0 / 55%);
 `;
 
 export const FilmImage = styled.img`
