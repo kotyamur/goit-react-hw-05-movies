@@ -1,14 +1,13 @@
-import { searchMoviesDetails } from 'api';
-import { MovieInfo } from 'components/MovieInfo/MovieInfo';
-import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { Suspense, useState, useEffect } from 'react';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { Layout } from './MovieDetails.styled';
-import { Outlet } from 'react-router-dom';
+import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { NavToAdditionalInfo } from 'components/NavToAdditionalInfo/NavToAdditionalInfo';
 import { BackLink } from 'components/BackLink/BackLink';
 import { Loader } from 'components/Loader/Loader';
+import { searchMoviesDetails } from 'api';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,9 +39,13 @@ export const MovieDetails = () => {
           <BackLink to={backLinkHref}>Go back</BackLink>
           <MovieInfo movie={movie} />
           <NavToAdditionalInfo />
-          <Outlet />
+          <Suspense fallback={<div>Loading subpage...</div>}>
+            <Outlet />
+          </Suspense>
         </Layout>
       )}
     </main>
   );
 };
+
+export default MovieDetails;

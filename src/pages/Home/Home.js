@@ -4,7 +4,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useState, useEffect } from 'react';
 import { Layout, Header } from './Home.styled';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,3 +37,5 @@ export const Home = () => {
     </Layout>
   );
 };
+
+export default Home;

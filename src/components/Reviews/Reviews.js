@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { searchMovieReviews } from 'api';
 import { Layout, ReviewList, ReviewItem, ReviewAvtor } from './Reviews.styled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [movieReviews, setMovieReviews] = useState([]);
   const [error, setError] = useState(null);
   const { movieId } = useParams();
@@ -43,3 +43,5 @@ export const Reviews = () => {
     </Layout>
   );
 };
+
+export default Reviews;

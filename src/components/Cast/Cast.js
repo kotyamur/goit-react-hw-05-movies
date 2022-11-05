@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { searchMovieCast } from 'api';
 import { Layout, CastList, CastItem, ActorName } from './Cast.styled';
 
-export const Cast = () => {
+const Cast = () => {
   const [movieCast, setMovieCast] = useState([]);
   const [error, setError] = useState(null);
   const { movieId } = useParams();
@@ -55,3 +55,5 @@ export const Cast = () => {
     </Layout>
   );
 };
+
+export default Cast;

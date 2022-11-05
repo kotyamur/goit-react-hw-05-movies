@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Layout } from './Movies.styled';
 
-export const Movies = () => {
+const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,3 +51,5 @@ export const Movies = () => {
     </Layout>
   );
 };
+
+export default Movies;

@@ -9,7 +9,7 @@ export const Loader = ({ isLoading }) => {
       size={150}
       aria-label="Loading Spinner"
       data-testid="loader"
-      cssOverride={{ margin: 'auto' }}
+      cssOverride={{ margin: 'auto', marginLeft: '40px' }}
     />
   );
 };
