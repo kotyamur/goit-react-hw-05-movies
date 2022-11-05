@@ -5,7 +5,9 @@ export const NotFound = () => {
     <Layout>
       <ErrorTitle>404</ErrorTitle>
       <p>Sorry, we couldn't find that page :(</p>
-      <Link>Please go to the main page</Link>
+      <Link to="/" end>
+        Please go to the main page
+      </Link>
     </Layout>
   );
 };
