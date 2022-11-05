@@ -39,7 +39,7 @@ export const Movies = () => {
   return (
     <Layout>
       <SearchForm onSubmit={handleSubmit} />
-      {movies.length === 0 && <p>We didn't find any movie for this query.</p>}
+      {/* {movies.length === 0 && <p>We didn't find any movie for this query.</p>} */}
       {movies.length > 0 && <MoviesList movies={movies} />}
       {/* <MoviesList movies={movies} /> */}
     </Layout>

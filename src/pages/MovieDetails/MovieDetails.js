@@ -1,10 +1,11 @@
 import { searchMoviesDetails } from 'api';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { Layout } from './MovieDetails.styled';
 import { Outlet } from 'react-router-dom';
 import { NavToAdditionalInfo } from 'components/NavToAdditionalInfo/NavToAdditionalInfo';
+import { BackLink } from 'components/BackLink/BackLink';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -25,10 +26,14 @@ export const MovieDetails = () => {
     fetchMoviesDetails();
   }, [movieId]);
 
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/movies';
+  console.log(backLinkHref);
   return (
     <main>
       {movie && (
         <Layout>
+          <BackLink to={backLinkHref}>Go back</BackLink>
           <MovieInfo movie={movie} />
           <NavToAdditionalInfo />
           <Outlet />
