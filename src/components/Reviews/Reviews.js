@@ -20,7 +20,6 @@ export const Reviews = () => {
         );
       } catch (e) {
         setError("We don't have any reviews for this movie.");
-      } finally {
       }
     };
     fetchMovieReviews();

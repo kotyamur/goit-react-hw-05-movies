@@ -20,7 +20,6 @@ export const Cast = () => {
         );
       } catch (e) {
         setError("We didn't find any actors for this movie.");
-      } finally {
       }
     };
     fetchMovieCast();

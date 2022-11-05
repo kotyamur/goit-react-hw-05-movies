@@ -6,20 +6,24 @@ import { Layout } from './MovieDetails.styled';
 import { Outlet } from 'react-router-dom';
 import { NavToAdditionalInfo } from 'components/NavToAdditionalInfo/NavToAdditionalInfo';
 import { BackLink } from 'components/BackLink/BackLink';
+import { Loader } from 'components/Loader/Loader';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
 
   useEffect(() => {
     const fetchMoviesDetails = async () => {
+      setIsLoading(true);
       try {
         const movieById = await searchMoviesDetails(movieId);
         setMovie(movieById);
       } catch (e) {
         setError("We didn't find any information about this movie.");
       } finally {
+        setIsLoading(false);
       }
     };
     fetchMoviesDetails();
@@ -29,6 +33,7 @@ export const MovieDetails = () => {
   const backLinkHref = location.state?.from ?? '/movies';
   return (
     <main>
+      <Loader isLoading={isLoading} />
       {error && <p>{error}</p>}
       {movie && (
         <Layout>
