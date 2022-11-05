@@ -12,7 +12,6 @@ export const Reviews = () => {
     const fetchMovieReviews = async () => {
       try {
         const filmReviews = await searchMovieReviews(movieId);
-        console.log(filmReviews);
         setMovieReviews(filmReviews);
         setError(
           filmReviews.length === 0
