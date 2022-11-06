@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { generateUrl } from 'utils';
 import {
   FilmInfo,
   Layout,
@@ -18,18 +19,9 @@ export const MovieInfo = ({ movie }) => {
     genres,
   } = movie;
 
-  const imageUrl = 'https://image.tmdb.org/t/p/w500/';
-
   return (
     <Layout>
-      <FilmImage
-        src={
-          poster_path
-            ? imageUrl + poster_path
-            : 'https://i.postimg.cc/L8fCW6RZ/repetajpg.jpg'
-        }
-        alt={original_title}
-      />
+      <FilmImage src={generateUrl(poster_path)} alt={original_title} />
       <FilmInfo>
         <FilmTitle>
           {title} ({String(release_date).slice(0, 4)})
