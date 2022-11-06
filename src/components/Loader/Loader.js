@@ -15,5 +15,5 @@ export const Loader = ({ isLoading }) => {
 };
 
 Loader.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
 };

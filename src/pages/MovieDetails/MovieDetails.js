@@ -23,7 +23,7 @@ const MovieDetails = () => {
           <BackLink to={backLinkHref}>Go back</BackLink>
           <MovieInfo movie={movie} />
           <NavToAdditionalInfo />
-          <Suspense fallback={<div>Loading subpage...</div>}>
+          <Suspense fallback={<Loader />}>
             <Outlet />
           </Suspense>
         </Layout>
