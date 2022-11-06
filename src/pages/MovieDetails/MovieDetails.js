@@ -6,11 +6,12 @@ import { NavToAdditionalInfo } from 'components/NavToAdditionalInfo/NavToAdditio
 import { BackLink } from 'components/BackLink/BackLink';
 import { Loader } from 'components/Loader/Loader';
 import { useRequest } from 'hooks/useRequest';
+import { searchMoviesDetails } from 'services/api';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
 
-  const [movie, error, isLoading] = useRequest('searchMoviesDetails', movieId);
+  const [movie, error, isLoading] = useRequest(searchMoviesDetails, movieId);
 
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/movies';

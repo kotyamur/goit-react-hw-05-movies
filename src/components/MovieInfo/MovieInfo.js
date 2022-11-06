@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { generateUrl } from 'utils';
+import { generateUrl } from 'services/utils';
 import {
   FilmInfo,
   Layout,

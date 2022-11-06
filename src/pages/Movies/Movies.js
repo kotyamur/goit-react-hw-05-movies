@@ -3,6 +3,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { useRequest } from 'hooks/useRequest';
 import { useSearchParams } from 'react-router-dom';
+import { searchMoviesByQuery } from 'services/api';
 import { Layout } from './Movies.styled';
 
 const Movies = () => {
@@ -14,7 +15,7 @@ const Movies = () => {
     setSearchParams(nextQuery);
   };
 
-  const [movies, error, isLoading] = useRequest('searchMoviesByQuery', query);
+  const [movies, error, isLoading] = useRequest(searchMoviesByQuery, query);
 
   return (
     <Layout>
