@@ -1,4 +1,3 @@
-import { searchMoviesByQuery } from 'api';
 import { Loader } from 'components/Loader/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { SearchForm } from 'components/SearchForm/SearchForm';
@@ -15,11 +14,7 @@ const Movies = () => {
     setSearchParams(nextQuery);
   };
 
-  const [movies, error, isLoading] = useRequest(() => {
-    if (query !== '') {
-      return searchMoviesByQuery(query);
-    }
-  }, [query]);
+  const [movies, error, isLoading] = useRequest('searchMoviesByQuery', query);
 
   return (
     <Layout>

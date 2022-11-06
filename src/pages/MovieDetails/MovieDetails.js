@@ -5,16 +5,12 @@ import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { NavToAdditionalInfo } from 'components/NavToAdditionalInfo/NavToAdditionalInfo';
 import { BackLink } from 'components/BackLink/BackLink';
 import { Loader } from 'components/Loader/Loader';
-import { searchMoviesDetails } from 'api';
 import { useRequest } from 'hooks/useRequest';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
 
-  const [movie, error, isLoading] = useRequest(
-    () => searchMoviesDetails(movieId),
-    [movieId]
-  );
+  const [movie, error, isLoading] = useRequest('searchMoviesDetails', movieId);
 
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/movies';

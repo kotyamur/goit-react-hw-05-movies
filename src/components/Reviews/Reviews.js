@@ -1,15 +1,11 @@
 import { useParams } from 'react-router-dom';
-import { searchMovieReviews } from 'api';
 import { Layout, ReviewList, ReviewItem, ReviewAvtor } from './Reviews.styled';
 import { useRequest } from 'hooks/useRequest';
 
 const Reviews = () => {
   const { movieId } = useParams();
 
-  const [movieReviews, error] = useRequest(
-    () => searchMovieReviews(movieId),
-    [movieId]
-  );
+  const [movieReviews, error] = useRequest('searchMovieReviews', movieId);
 
   return (
     <Layout>

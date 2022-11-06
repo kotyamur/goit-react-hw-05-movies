@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { searchMovieCast } from 'api';
 import { Layout, CastList, CastItem, ActorName } from './Cast.styled';
 import { useRequest } from 'hooks/useRequest';
 import { generateUrl } from 'utils';
@@ -7,10 +6,7 @@ import { generateUrl } from 'utils';
 const Cast = () => {
   const { movieId } = useParams();
 
-  const [movieCast, error] = useRequest(
-    () => searchMovieCast(movieId),
-    [movieId]
-  );
+  const [movieCast, error] = useRequest('searchMovieCast', movieId);
 
   return (
     <Layout>
