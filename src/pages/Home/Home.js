@@ -4,8 +4,6 @@ import { useRequest } from 'hooks/useRequest';
 import { Layout, Header } from './Home.styled';
 
 const Home = () => {
-  // const [movies, error, isLoading] = useRequest(searchPopularMovies, []);
-
   const [movies, error, isLoading] = useRequest('searchPopularMovies');
 
   return (
