@@ -3,7 +3,7 @@ export const theme = {
     black: '#010101',
     white: '#fff',
     green: '#4caf50',
-    red: '#f44336',
+    orange: '#ffa500',
     blue: '#2196f3',
     secondaryText: '#757575',
     primaryText: '#212121',
@@ -18,11 +18,13 @@ export const theme = {
     xs: '12px',
     s: '14px',
     m: '16px',
+    ml: '28px',
     l: '32px',
     xl: '48px',
   },
   fontWeights: {
     normal: 400,
+    semiBold: 500,
     bold: 700,
   },
   lineHeights: {

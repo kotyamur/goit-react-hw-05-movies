@@ -5,5 +5,5 @@ export const Layout = styled.main`
 `;
 
 export const Header = styled.h1`
-  margin-bottom: 16px;
+  margin-bottom: ${p => p.theme.space[4]}px;
 `;

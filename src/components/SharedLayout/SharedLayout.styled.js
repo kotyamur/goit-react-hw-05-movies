@@ -7,8 +7,8 @@ export const Layout = styled.div`
 `;
 
 export const Header = styled.header`
-  padding: 8px;
-  margin-bottom: 16px;
+  padding: ${p => p.theme.space[3]}px;
+  margin-bottom: ${p => p.theme.space[4]}px;
   box-shadow: 1px 2px 9px 0px rgb(0 0 0 / 55%);
 
   > nav {
@@ -18,14 +18,13 @@ export const Header = styled.header`
 
 export const Link = styled(NavLink)`
   padding: 8px 16px;
-  border-radius: 4px;
   text-decoration: none;
   color: black;
-  font-size: 28px;
-  font-weight: 500;
+  font-size: ${p => p.theme.fontSizes.ml};
+  font-weight: ${p => p.theme.fontWeights.semiBold};
 
   &.active {
-    color: orange;
+    color: ${p => p.theme.colors.orange};
   }
 
   :hover {

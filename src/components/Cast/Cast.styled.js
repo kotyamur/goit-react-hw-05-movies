@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Layout = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: ${p => p.theme.space[3]}px;
   padding: 20px 20px;
 `;
 
@@ -11,7 +11,7 @@ export const CastList = styled.ul`
   padding: 0 20px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: ${p => p.theme.space[4]}px;
   list-style: disc;
 `;
 
@@ -20,11 +20,11 @@ export const CastItem = styled.li`
 
   & > img {
     width: 150px;
-    margin-bottom: 12px;
+    margin-bottom: ${p => p.theme.space[3]}px;
   }
 `;
 
 export const ActorName = styled.p`
-  margin-bottom: 12px;
-  font-weight: 500;
+  margin-bottom: ${p => p.theme.space[3]}px;
+  font-weight: ${p => p.theme.fontWeights.semiBold};
 `;

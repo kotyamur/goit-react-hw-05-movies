@@ -4,10 +4,10 @@ export const Layout = styled.ul`
   padding: 0 20px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: ${p => p.theme.space[3]}px;
   list-style: disc;
 `;
 
 export const Text = styled.p`
-  font-size: 16px;
+  font-size: ${p => p.theme.fontSizes.m};
 `;
